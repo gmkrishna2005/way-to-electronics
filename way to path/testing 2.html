@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ElectroConnect - Empowering Electronics Students</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- External CSS for modern look and icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a237e;
+            --primary-dark: #283593;
+            --accent: #ffb300;
+            --background: #f4f6fa;
+            --card-bg: #fff;
+            --card-alt: #e8eaf6;
+            --border-radius: 10px;
+            --shadow: 0 2px 12px rgba(40,53,147,0.08);
+            --transition: 0.2s;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: var(--background);
+            color: #222;
+        }
+        header {
+            background: var(--primary);
+            color: #fff;
+            padding: 2.5rem 1rem 1.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(26,35,126,0.08);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: 1px;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin: 0;
+            opacity: 0.95;
+        }
+        nav {
+            background: var(--primary-dark);
+            padding: 0.7rem 0;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(40,53,147,0.05);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1.2rem;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            transition: color var(--transition);
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width var(--transition);
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+        }
+        nav a.active, nav a:hover {
+            color: var(--accent);
+        }
+        nav a.active::after, nav a:hover::after {
+            width: 100%;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 2.5rem auto;
+            background: var(--card-bg);
+            padding: 2.5rem 2.5rem 2rem 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        section {
+            margin-bottom: 2.5rem;
+        }
+        h2 {
+            color: var(--primary-dark);
+            margin-top: 0;
+            font-size: 2rem;
+            letter-spacing: 0.5px;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .feature-card {
+            flex: 1 1 260px;
+            background: var(--card-alt);
+            border-radius: 8px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 1px 4px rgba(40,53,147,0.05);
+            min-width: 230px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+        .feature-card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 4px 16px rgba(40,53,147,0.13);
+        }
+        .feature-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .feature-card i {
+            color: var(--accent);
+            font-size: 1.3em;
+        }
+        .job-listing {
+            background: #f5f5f5;
+            border-left: 4px solid var(--primary);
+            margin: 1rem 0;
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(40,53,147,0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+        .job-listing strong {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+        }
+        .job-listing a {
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+            margin-left: 0.5rem;
+            transition: color var(--transition);
+        }
+        .job-listing a:hover {
+            color: var(--accent);
+        }
+        .jobs-section a {
+            color: var(--primary);
+            font-weight: bold;
+            text-decoration: underline;
+            transition: color var(--transition);
+        }
+        .jobs-section a:hover {
+            color: var(--accent);
+        }
+        .community-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0 0;
+        }
+        .community-section li {
+            margin-bottom: 0.7rem;
+        }
+        .community-section a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+        .community-section a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        .login-section {
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+        .login-section h2 {
+            margin-bottom: 1rem;
+        }
+        .login-section form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .login-section input {
+            padding: 0.6rem 1rem;
+            border-radius: 4px;
+            border: 1px solid #bdbdbd;
+            width: 250px;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            transition: border-color var(--transition);
+        }
+        .login-section input:focus {
+            border-color: var(--primary-dark);
+            outline: none;
+        }
+        .login-section button {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 0.6rem 2.2rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: background var(--transition), box-shadow var(--transition);
+            box-shadow: 0 1px 4px rgba(40,53,147,0.08);
+        }
+        .login-section button:hover {
+            background: var(--primary-dark);
+            box-shadow: 0 2px 8px rgba(40,53,147,0.13);
+        }
+        .login-section a {
+            color: var(--primary-dark);
+            text-decoration: underline;
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+        .login-section a:hover {
+            color: var(--accent);
+        }
+        .post-section {
+            margin-top:2.5rem;
+        }
+        .post-section h2 {
+            margin-bottom: 1rem;
+        }
+        .post-section form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+        .post-section input[type="text"], .post-section textarea {
+            border: 1px solid #bdbdbd;
+            border-radius: 4px;
+            padding: 0.7rem 1rem;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 600px;
+            transition: border-color var(--transition);
+        }
+        .post-section input[type="text"]:focus, .post-section textarea:focus {
+            border-color: var(--primary-dark);
+            outline: none;
+        }
+        .post-section textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .post-section button {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 0.6rem 2.2rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: background var(--transition), box-shadow var(--transition);
+            box-shadow: 0 1px 4px rgba(40,53,147,0.08);
+        }
+        .post-section button:hover {
+            background: var(--primary-dark);
+            box-shadow: 0 2px 8px rgba(40,53,147,0.13);
+        }
+        .learn-section {
+            margin-top: 2.5rem;
+        }
+        .learn-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .learn-card {
+            flex: 1 1 260px;
+            background: var(--card-alt);
+            border-radius: 8px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 1px 4px rgba(40,53,147,0.05);
+            min-width: 230px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+        .learn-card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 4px 16px rgba(40,53,147,0.13);
+        }
+        .learn-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .learn-card i {
+            color: var(--accent);
+            font-size: 1.2em;
+        }
+        .learn-card ul {
+            margin: 0.5rem 0 0 1.2rem;
+            padding: 0;
+        }
+        .learn-card ul li {
+            margin-bottom: 0.3rem;
+        }
+        .learn-card a {
+            color: var(--primary-dark);
+            text-decoration: underline;
+            font-weight: 500;
+            transition: color var(--transition);
+            cursor: pointer;
+        }
+        .learn-card a:hover {
+            color: var(--accent);
+        }
+        .learn-questions-section {
+            margin-top: 2.5rem;
+        }
+        .learn-questions-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .learn-questions-list li {
+            background: #f5f5f5;
+            border-left: 4px solid var(--primary-dark);
+            margin-bottom: 1rem;
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(40,53,147,0.04);
+        }
+        .learn-questions-list strong {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        .learn-questions-list .question-meta {
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 0.2rem;
+        }
+        .learn-questions-list .question-content {
+            margin-top: 0.5rem;
+        }
+        .learn-ask-btn {
+            display: inline-block;
+            background: var(--primary-dark);
+            color: #fff;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 1.2rem;
+            transition: background var(--transition);
+        }
+        .learn-ask-btn:hover {
+            background: var(--accent);
+            color: #222;
+        }
+        .learn-question-form {
+            margin-bottom: 2rem;
+            background: var(--card-alt);
+            padding: 1.2rem 1rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(40,53,147,0.05);
+            max-width: 600px;
+        }
+        .learn-question-form input[type="text"], .learn-question-form textarea {
+            width: 100%;
+            border: 1px solid #bdbdbd;
+            border-radius: 4px;
+            padding: 0.7rem 1rem;
+            font-size: 1rem;
+            margin-bottom: 0.7rem;
+            transition: border-color var(--transition);
+        }
+        .learn-question-form input[type="text"]:focus, .learn-question-form textarea:focus {
+            border-color: var(--primary-dark);
+            outline: none;
+        }
+        .learn-question-form button {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 0.6rem 2.2rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: background var(--transition), box-shadow var(--transition);
+            box-shadow: 0 1px 4px rgba(40,53,147,0.08);
+        }
+        .learn-question-form button:hover {
+            background: var(--primary-dark);
+            box-shadow: 0 2px 8px rgba(40,53,147,0.13);
+        }
+        footer {
+            text-align: center;
+            color: #888;
+            padding: 1.2rem 0;
+            background: var(--card-alt);
+            margin-top: 3rem;
+            font-size: 1rem;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            box-shadow: 0 -1px 4px rgba(40,53,147,0.04);
+        }
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .container { padding: 1.2rem; }
+        }
+        @media (max-width: 900px) {
+            .features, .learn-grid { flex-direction: column; gap: 1.2rem; }
+        }
+        @media (max-width: 600px) {
+            header { padding: 1.2rem 0.5rem; }
+            .container { padding: 0.5rem; }
+            .feature-card, .learn-card { padding: 1rem 0.7rem; }
+            .post-section input[type="text"], .post-section textarea { max-width: 100%; }
+        }
+        /* Hide all pages by default */
+        .page-section { display: none; }
+        .page-section.active { display: block; }
+        /* Hide all learn question pages by default */
+        .learn-question-page { display: none; }
+        .learn-question-page.active { display: block; }
+    </style>
+    <script>
+        // SPA-like navigation for sections and learn question pages
+        document.addEventListener('DOMContentLoaded', function() {
+            function showPage(page) {
+                document.querySelectorAll('.page-section').forEach(function(sec) {
+                    sec.classList.remove('active');
+                });
+                var pageSection = document.getElementById(page);
+                if (pageSection) {
+                    pageSection.classList.add('active');
+                }
+                document.querySelectorAll('nav a').forEach(function(link) {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-page') === page) {
+                        link.classList.add('active');
+                    }
+                });
+                window.scrollTo(0,0);
+            }
+
+            // Learn question page navigation
+            function showLearnQuestionPage(qid) {
+                document.querySelectorAll('.learn-question-page').forEach(function(sec) {
+                    sec.classList.remove('active');
+                });
+                var qPage = document.getElementById(qid);
+                if (qPage) {
+                    qPage.classList.add('active');
+                    // Hide main learn page content
+                    document.getElementById('learn-main').style.display = 'none';
+                }
+                // Show learn page section if not already
+                showPage('learn');
+            }
+            function showLearnMain() {
+                document.querySelectorAll('.learn-question-page').forEach(function(sec) {
+                    sec.classList.remove('active');
+                });
+                document.getElementById('learn-main').style.display = '';
+            }
+
+            // Set up nav links
+            document.querySelectorAll('nav a[data-page]').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showPage(this.getAttribute('data-page'));
+                    if (this.getAttribute('data-page') === 'learn') {
+                        showLearnMain();
+                        history.pushState({page: 'learn'}, '', '#learn');
+                    } else {
+                        history.pushState({page: this.getAttribute('data-page')}, '', '#' + this.getAttribute('data-page'));
+                    }
+                });
+            });
+
+            // Learn topic/question links
+            document.querySelectorAll('.learn-card a[data-learn-qid]').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var qid = this.getAttribute('data-learn-qid');
+                    showLearnQuestionPage(qid);
+                    history.pushState({page: 'learn', learnQid: qid}, '', '#learn-' + qid);
+                });
+            });
+
+            // Learn question page back buttons
+            document.querySelectorAll('.learn-question-back').forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showLearnMain();
+                    history.pushState({page: 'learn'}, '', '#learn');
+                });
+            });
+
+            // Handle browser navigation
+            window.addEventListener('popstate', function(e) {
+                if (e.state && e.state.page) {
+                    showPage(e.state.page);
+                    if (e.state.page === 'learn') {
+                        if (e.state.learnQid) {
+                            showLearnQuestionPage(e.state.learnQid);
+                        } else {
+                            showLearnMain();
+                        }
+                    }
+                }
+            });
+
+            // On load, show page from hash or default to home
+            let initialPage = location.hash.replace('#','') || 'home';
+            if (!document.getElementById(initialPage)) {
+                // Check for learn question page
+                if (initialPage.startsWith('learn-')) {
+                    showPage('learn');
+                    showLearnMain();
+                    var qid = initialPage.replace('learn-','');
+                    if (document.getElementById(qid)) {
+                        showLearnQuestionPage(qid);
+                    }
+                } else {
+                    initialPage = 'home';
+                    showPage(initialPage);
+                }
+            } else {
+                showPage(initialPage);
+                if (initialPage === 'learn') {
+                    showLearnMain();
+                }
+            }
+
+            // Dynamically add event listeners for learn question links and back buttons (for SPA navigation)
+            function rebindLearnLinks() {
+                document.querySelectorAll('.learn-card a[data-learn-qid]').forEach(function(link) {
+                    link.onclick = function(e) {
+                        e.preventDefault();
+                        var qid = this.getAttribute('data-learn-qid');
+                        showLearnQuestionPage(qid);
+                        history.pushState({page: 'learn', learnQid: qid}, '', '#learn-' + qid);
+                    };
+                });
+                document.querySelectorAll('.learn-question-back').forEach(function(btn) {
+                    btn.onclick = function(e) {
+                        e.preventDefault();
+                        showLearnMain();
+                        history.pushState({page: 'learn'}, '', '#learn');
+                    };
+                });
+            }
+            rebindLearnLinks();
+
+            // Learn question form (demo, not persistent)
+            var learnQuestionForm = document.getElementById('learn-question-form');
+            if (learnQuestionForm) {
+                learnQuestionForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    var title = this.querySelector('input[name="question-title"]').value.trim();
+                    var content = this.querySelector('textarea[name="question-content"]').value.trim();
+                    if (title && content) {
+                        var list = document.getElementById('learn-questions-list');
+                        var li = document.createElement('li');
+                        li.innerHTML = '<strong>' + title + '</strong><div class="question-meta">Just now</div><div class="question-content">' + content + '</div>';
+                        list.insertBefore(li, list.firstChild);
+                        this.reset();
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1><i class="fa-solid fa-microchip"></i> ElectroConnect</h1>
+        <p>
+            The ecosystem for Electronics students to connect, learn, and launch their careers in VLSI & Embedded Systems.
+        </p>
+    </header>
+    <nav>
+        <a href="#home" data-page="home" class="active"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="#learn" data-page="learn"><i class="fa-solid fa-book-open"></i> Learn</a>
+        <a href="#coding" data-page="coding"><i class="fa-solid fa-code"></i> Coding Platform</a>
+        <a href="#community" data-page="community"><i class="fa-solid fa-users"></i> Community</a>
+        <a href="#jobs" data-page="jobs"><i class="fa-solid fa-briefcase"></i> Jobs</a>
+        <a href="#blogs" data-page="blogs"><i class="fa-solid fa-blog"></i> Blogs</a>
+        <a href="#login" data-page="login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+    </nav>
+    <div class="container">
+        <!-- Home Page -->
+        <section id="home" class="page-section active">
+            <h2>Why ElectroConnect?</h2>
+            <p>
+                <strong>Professional guidance</strong> for the right and easy path into the electronics industry.<br>
+                <strong>Practice coding</strong> with challenges tailored for VLSI and Embedded Systems.<br>
+                <strong>Connect</strong> with peers, mentors, and industry professionals.<br>
+                <strong>Exclusive job postings</strong> in VLSI and Embedded domains.<br>
+                <strong>Share knowledge</strong> by posting questions and blogs, and build your network.
+            </p>
+            <section class="features">
+                <div class="feature-card">
+                    <h3><i class="fa-solid fa-user-tie"></i> Industry Guidance</h3>
+                    <p>
+                        Get professional input from experts to help you choose the right and easy path into the electronics industry.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fa-solid fa-laptop-code"></i> Coding Platform</h3>
+                    <p>
+                        Practice and improve your coding skills with problems and contests, just like LeetCode and HackerRank, but focused on electronics, VLSI, and embedded systems.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fa-solid fa-users"></i> Student Community</h3>
+                    <p>
+                        Join a vibrant community of students and professionals. Ask questions, share knowledge, and make connections like LinkedIn.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fa-solid fa-pen-nib"></i> Blogs & Q&amp;A</h3>
+                    <p>
+                        Post questions, write blogs, and contribute to the knowledge base. Help others and get recognized!
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fa-solid fa-book-open"></i> Learn Concepts</h3>
+                    <p>
+                        Explore curated learning resources and topics in VLSI, Embedded Systems, and core electronics to build your foundation.
+                    </p>
+                </div>
+            </section>
+        </section>
+        <!-- Learn Page -->
+        <section id="learn" class="page-section">
+            <div id="learn-main">
+                <h2><i class="fa-solid fa-book-open"></i> Learn Concepts & Topics</h2>
+                <p>
+                    Dive into essential topics and concepts for electronics, VLSI, and embedded systems. Start your learning journey here!
+                </p>
+                <div class="learn-grid">
+                    <div class="learn-card">
+                        <h3><i class="fa-solid fa-microchip"></i> VLSI Basics</h3>
+                        <ul>
+                            <li><a href="#learn-vlsi1" data-learn-qid="learn-vlsi1">What is VLSI?</a></li>
+                            <li><a href="#learn-vlsi2" data-learn-qid="learn-vlsi2">CMOS Technology</a></li>
+                            <li><a href="#learn-vlsi3" data-learn-qid="learn-vlsi3">Digital Logic Design</a></li>
+                            <li><a href="#learn-vlsi4" data-learn-qid="learn-vlsi4">ASIC vs FPGA</a></li>
+                        </ul>
+                    </div>
+                    <div class="learn-card">
+                        <h3><i class="fa-solid fa-microchip"></i> Digital Electronics</h3>
+                        <ul>
+                            <li><a href="#learn-dig1" data-learn-qid="learn-dig1">Number Systems & Codes</a></li>
+                            <li><a href="#learn-dig2" data-learn-qid="learn-dig2">Combinational Circuits</a></li>
+                            <li><a href="#learn-dig3" data-learn-qid="learn-dig3">Sequential Circuits</a></li>
+                            <li><a href="#learn-dig4" data-learn-qid="learn-dig4">State Machines</a></li>
+                        </ul>
+                    </div>
+                    <div class="learn-card">
+                        <h3><i class="fa-solid fa-microchip"></i> Embedded Systems</h3>
+                        <ul>
+                            <li><a href="#learn-emb1" data-learn-qid="learn-emb1">Microcontrollers vs Microprocessors</a></li>
+                            <li><a href="#learn-emb2" data-learn-qid="learn-emb2">Embedded C Programming</a></li>
+                            <li><a href="#learn-emb3" data-learn-qid="learn-emb3">RTOS Basics</a></li>
+                            <li><a href="#learn-emb4" data-learn-qid="learn-emb4">Peripheral Interfacing</a></li>
+                        </ul>
+                    </div>
+                    <div class="learn-card">
+                        <h3><i class="fa-solid fa-microchip"></i> Verilog & HDL</h3>
+                        <ul>
+                            <li><a href="#learn-ver1" data-learn-qid="learn-ver1">Introduction to Verilog</a></li>
+                            <li><a href="#learn-ver2" data-learn-qid="learn-ver2">Basic Syntax & Modules</a></li>
+                            <li><a href="#learn-ver3" data-learn-qid="learn-ver3">Testbenches</a></li>
+                            <li><a href="#learn-ver4" data-learn-qid="learn-ver4">Simulation & Synthesis</a></li>
+                        </ul>
+                    </div>
+                    <div class="learn-card">
+                        <h3><i class="fa-solid fa-microchip"></i> Analog Electronics</h3>
+                        <ul>
+                            <li><a href="#learn-ana1" data-learn-qid="learn-ana1">Op-Amps</a></li>
+                            <li><a href="#learn-ana2" data-learn-qid="learn-ana2">Filters & Oscillators</a></li>
+                            <li><a href="#learn-ana3" data-learn-qid="learn-ana3">ADC & DAC</a></li>
+                            <li><a href="#learn-ana4" data-learn-qid="learn-ana4">Signal Conditioning</a></li>
+                        </ul>
+                    </div>
+                    <div class="learn-card">
+                        <h3><i class="fa-solid fa-microchip"></i> Interview Preparation</h3>
+                        <ul>
+                            <li><a href="#learn-int1" data-learn-qid="learn-int1">Top VLSI Interview Questions</a></li>
+                            <li><a href="#learn-int2" data-learn-qid="learn-int2">Embedded C Interview Qs</a></li>
+                            <li><a href="#learn-int3" data-learn-qid="learn-int3">Resume Tips for Electronics</a></li>
+                            <li><a href="#learn-int4" data-learn-qid="learn-int4">Aptitude & Reasoning</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="learn-questions-section">
+                    <h2><i class="fa-solid fa-question-circle"></i> Questions on Concepts</h2>
+                    <a href="#" class="learn-ask-btn" onclick="document.getElementById('learn-question-form').style.display='block';this.style.display='none';return false;"><i class="fa-solid fa-plus"></i> Ask a Question</a>
+                    <form id="learn-question-form" class="learn-question-form" style="display:none;">
+                        <input type="text" name="question-title" placeholder="Question Title" required>
+                        <textarea name="question-content" placeholder="Describe your question..." rows="3" required></textarea>
+                        <button type="submit"><i class="fa-solid fa-paper-plane"></i> Post Question</button>
+                    </form>
+                    <ul class="learn-questions-list" id="learn-questions-list">
+                        <li>
+                            <strong>What is the difference between ASIC and FPGA?</strong>
+                            <div class="question-meta">by StudentA | 2 days ago</div>
+                            <div class="question-content">I am confused about the practical differences between ASIC and FPGA in VLSI design. Can someone explain with examples?</div>
+                        </li>
+                        <li>
+                            <strong>How does an Op-Amp work in signal conditioning?</strong>
+                            <div class="question-meta">by StudentB | 5 days ago</div>
+                            <div class="question-content">Can someone explain how operational amplifiers are used for signal conditioning in analog circuits?</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="post-section learn-section">
+                    <h2><i class="fa-solid fa-pen"></i> Suggest a Topic</h2>
+                    <form>
+                        <input type="text" placeholder="Topic Title" required>
+                        <textarea placeholder="Describe the topic or concept you want to learn about..." rows="3" required></textarea>
+                        <button type="submit"><i class="fa-solid fa-paper-plane"></i> Suggest</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Learn Question Pages (separate pages for each question/topic) -->
+            <div id="learn-vlsi1" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>What is VLSI?</h2>
+                <p>
+                    <strong>VLSI</strong> stands for <em>Very Large Scale Integration</em>. It refers to the process of creating integrated circuits by combining thousands to millions of transistors onto a single chip. VLSI technology is the foundation of modern digital devices such as microprocessors, memory chips, and application-specific ICs.<br><br>
+                    <b>Key Points:</b>
+                    <ul>
+                        <li>Enables complex functionality in small form factors</li>
+                        <li>Reduces power consumption and cost per function</li>
+                        <li>Used in CPUs, GPUs, SoCs, and more</li>
+                    </ul>
+                </p>
+            </div>
+            <div id="learn-vlsi2" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>CMOS Technology</h2>
+                <p>
+                    <strong>CMOS</strong> (Complementary Metal-Oxide-Semiconductor) is a technology for constructing integrated circuits. It uses both p-type and n-type MOSFETs to achieve low static power consumption and high noise immunity.<br><br>
+                    <b>Applications:</b>
+                    <ul>
+                        <li>Microprocessors</li>
+                        <li>Microcontrollers</li>
+                        <li>Static RAM</li>
+                    </ul>
+                </p>
+            </div>
+            <div id="learn-vlsi3" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Digital Logic Design</h2>
+                <p>
+                    Digital logic design is the basis of digital circuits. It involves the use of logic gates (AND, OR, NOT, etc.) to implement combinational and sequential circuits.<br>
+                    <b>Topics include:</b>
+                    <ul>
+                        <li>Boolean algebra</li>
+                        <li>Combinational logic</li>
+                        <li>Sequential logic</li>
+                        <li>State machines</li>
+                    </ul>
+                </p>
+            </div>
+            <div id="learn-vlsi4" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>ASIC vs FPGA</h2>
+                <p>
+                    <strong>ASIC</strong> (Application-Specific Integrated Circuit) is a custom chip designed for a specific application, while <strong>FPGA</strong> (Field-Programmable Gate Array) is a reconfigurable chip that can be programmed after manufacturing.<br>
+                    <b>Comparison:</b>
+                    <ul>
+                        <li>ASIC: High performance, low unit cost (in volume), not reprogrammable</li>
+                        <li>FPGA: Flexible, reprogrammable, higher unit cost, good for prototyping</li>
+                    </ul>
+                </p>
+            </div>
+            <!-- Digital Electronics -->
+            <div id="learn-dig1" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Number Systems & Codes</h2>
+                <p>
+                    Number systems (binary, octal, decimal, hexadecimal) are fundamental to digital electronics. Codes like Gray code, BCD, and ASCII are used for data representation and error detection.
+                </p>
+            </div>
+            <div id="learn-dig2" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Combinational Circuits</h2>
+                <p>
+                    Combinational circuits are logic circuits whose output depends only on the current inputs. Examples include adders, multiplexers, encoders, and decoders.
+                </p>
+            </div>
+            <div id="learn-dig3" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Sequential Circuits</h2>
+                <p>
+                    Sequential circuits have outputs that depend on current inputs and previous states. Examples: flip-flops, counters, shift registers.
+                </p>
+            </div>
+            <div id="learn-dig4" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>State Machines</h2>
+                <p>
+                    State machines are used to model sequential logic. They transition between states based on inputs and are widely used in digital design.
+                </p>
+            </div>
+            <!-- Embedded Systems -->
+            <div id="learn-emb1" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Microcontrollers vs Microprocessors</h2>
+                <p>
+                    Microcontrollers are integrated chips with CPU, memory, and peripherals, used for dedicated tasks. Microprocessors are general-purpose CPUs used in computers.
+                </p>
+            </div>
+            <div id="learn-emb2" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Embedded C Programming</h2>
+                <p>
+                    Embedded C is a set of language extensions for the C programming language to address commonality issues that exist between C extensions for different embedded systems.
+                </p>
+            </div>
+            <div id="learn-emb3" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>RTOS Basics</h2>
+                <p>
+                    RTOS (Real-Time Operating System) is designed to serve real-time applications that process data as it comes in, typically without buffer delays.
+                </p>
+            </div>
+            <div id="learn-emb4" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Peripheral Interfacing</h2>
+                <p>
+                    Peripheral interfacing involves connecting external devices (sensors, displays, etc.) to microcontrollers using protocols like UART, SPI, I2C.
+                </p>
+            </div>
+            <!-- Verilog & HDL -->
+            <div id="learn-ver1" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Introduction to Verilog</h2>
+                <p>
+                    Verilog is a hardware description language (HDL) used to model electronic systems. It is commonly used for designing and verifying digital circuits.
+                </p>
+            </div>
+            <div id="learn-ver2" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Basic Syntax & Modules</h2>
+                <p>
+                    Verilog modules are the building blocks of digital design. Syntax includes module declaration, ports, and behavioral/structural code.
+                </p>
+            </div>
+            <div id="learn-ver3" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Testbenches</h2>
+                <p>
+                    Testbenches are used to simulate and verify the functionality of Verilog modules before hardware implementation.
+                </p>
+            </div>
+            <div id="learn-ver4" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Simulation & Synthesis</h2>
+                <p>
+                    Simulation checks the logic of your design, while synthesis converts HDL code into gate-level netlists for fabrication.
+                </p>
+            </div>
+            <!-- Analog Electronics -->
+            <div id="learn-ana1" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Op-Amps</h2>
+                <p>
+                    Operational amplifiers (Op-Amps) are versatile analog ICs used for amplification, filtering, and mathematical operations in circuits.
+                </p>
+            </div>
+            <div id="learn-ana2" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Filters & Oscillators</h2>
+                <p>
+                    Filters remove unwanted frequencies, while oscillators generate periodic signals. Both are essential in analog signal processing.
+                </p>
+            </div>
+            <div id="learn-ana3" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>ADC & DAC</h2>
+                <p>
+                    ADC (Analog-to-Digital Converter) and DAC (Digital-to-Analog Converter) are used to interface analog signals with digital systems.
+                </p>
+            </div>
+            <div id="learn-ana4" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Signal Conditioning</h2>
+                <p>
+                    Signal conditioning prepares signals for processing, often using amplification, filtering, and conversion techniques.
+                </p>
+            </div>
+            <!-- Interview Preparation -->
+            <div id="learn-int1" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Top VLSI Interview Questions</h2>
+                <p>
+                    Common VLSI interview questions include topics on CMOS, timing analysis, design flows, and verification methodologies.
+                </p>
+            </div>
+            <div id="learn-int2" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Embedded C Interview Qs</h2>
+                <p>
+                    Embedded C interview questions often focus on pointers, memory management, interrupts, and real-time constraints.
+                </p>
+            </div>
+            <div id="learn-int3" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Resume Tips for Electronics</h2>
+                <p>
+                    Highlight relevant projects, internships, and technical skills. Tailor your resume for the VLSI/Embedded domain.
+                </p>
+            </div>
+            <div id="learn-int4" class="learn-question-page">
+                <a href="#" class="learn-question-back"><i class="fa-solid fa-arrow-left"></i> Back to Learn</a>
+                <h2>Aptitude & Reasoning</h2>
+                <p>
+                    Practice quantitative aptitude, logical reasoning, and technical MCQs for campus placements and interviews.
+                </p>
+            </div>
+        </section>
+        <!-- Coding Platform Page -->
+        <section id="coding" class="page-section">
+            <h2><i class="fa-solid fa-code"></i> Coding Platform</h2>
+            <p>
+                Welcome to the coding platform! Practice problems and contests focused on VLSI, Embedded C, Verilog, and electronics algorithms.
+            </p>
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-terminal"></i> Two's Complement Calculator (VLSI)</a></li>
+                <li><a href="#"><i class="fa-solid fa-terminal"></i> UART Protocol Simulation (Embedded)</a></li>
+                <li><a href="#"><i class="fa-solid fa-terminal"></i> LED Blinking in C (Microcontroller)</a></li>
+                <li><a href="#"><i class="fa-solid fa-terminal"></i> Verilog: 4-bit Adder</a></li>
+                <li><a href="#"><i class="fa-solid fa-terminal"></i> State Machine Design</a></li>
+            </ul>
+            <p>
+                <a href="#"><i class="fa-solid fa-plus"></i> Submit a Problem</a>
+            </p>
+        </section>
+        <!-- Community Page -->
+        <section id="community" class="page-section">
+            <h2><i class="fa-solid fa-users"></i> Student Community</h2>
+            <p>
+                <a href="#"><i class="fa-solid fa-comments"></i> Join the discussion</a> &mdash; Ask questions, answer doubts, and connect with fellow electronics enthusiasts!
+            </p>
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-question-circle"></i> How to get started in VLSI design?</a></li>
+                <li><a href="#"><i class="fa-solid fa-book"></i> Best resources for Embedded C programming</a></li>
+                <li><a href="#"><i class="fa-solid fa-lightbulb"></i> Share your project: IoT-based Home Automation</a></li>
+            </ul>
+            <div class="post-section">
+                <h2><i class="fa-solid fa-pen"></i> Post a Question</h2>
+                <form>
+                    <input type="text" placeholder="Title" required>
+                    <textarea placeholder="Write your question here..." rows="4" required></textarea>
+                    <button type="submit"><i class="fa-solid fa-paper-plane"></i> Post</button>
+                </form>
+            </div>
+        </section>
+        <!-- Jobs Page -->
+        <section id="jobs" class="page-section">
+            <h2><i class="fa-solid fa-briefcase"></i> Latest VLSI & Embedded Jobs</h2>
+            <div class="job-listing">
+                <strong>VLSI Design Engineer</strong> at ChipMakers Inc. <br>
+                <em>Bangalore, India</em> &mdash; <a href="#"><i class="fa-solid fa-arrow-right"></i> Apply Now</a>
+            </div>
+            <div class="job-listing">
+                <strong>Embedded Systems Developer</strong> at EmbedTech Solutions <br>
+                <em>Pune, India</em> &mdash; <a href="#"><i class="fa-solid fa-arrow-right"></i> Apply Now</a>
+            </div>
+            <div class="job-listing">
+                <strong>FPGA Verification Intern</strong> at SiliconStart <br>
+                <em>Remote</em> &mdash; <a href="#"><i class="fa-solid fa-arrow-right"></i> Apply Now</a>
+            </div>
+            <p style="margin-top:1rem;">
+                <a href="#"><i class="fa-solid fa-plus"></i> Post a Job</a> (VLSI & Embedded only)
+            </p>
+        </section>
+        <!-- Blogs Page -->
+        <section id="blogs" class="page-section">
+            <h2><i class="fa-solid fa-blog"></i> Blogs</h2>
+            <ul>
+                <li>
+                    <a href="#"><strong>Breaking into VLSI: A Roadmap for Students</strong></a>
+                    <br><small>by Priya S. | June 2024</small>
+                </li>
+                <li>
+                    <a href="#"><strong>Embedded Systems: Top 5 Projects for Beginners</strong></a>
+                    <br><small>by Rahul K. | May 2024</small>
+                </li>
+                <li>
+                    <a href="#"><strong>How to Prepare for VLSI Interviews</strong></a>
+                    <br><small>by Anjali M. | April 2024</small>
+                </li>
+            </ul>
+            <div class="post-section">
+                <h2><i class="fa-solid fa-pen"></i> Post a Blog</h2>
+                <form>
+                    <input type="text" placeholder="Blog Title" required>
+                    <textarea placeholder="Write your blog here..." rows="6" required></textarea>
+                    <button type="submit"><i class="fa-solid fa-paper-plane"></i> Post</button>
+                </form>
+            </div>
+        </section>
+        <!-- Login Page -->
+        <section id="login" class="page-section">
+            <div class="login-section">
+                <h2><i class="fa-solid fa-right-to-bracket"></i> User Login</h2>
+                <form>
+                    <input type="text" placeholder="Email or Username" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</button>
+                </form>
+                <p>
+                    New here? <a href="#"><i class="fa-solid fa-user-plus"></i> Register</a>
+                </p>
+            </div>
+        </section>
+    </div>
+    <footer>
+        &copy; 2024 ElectroConnect. All rights reserved. | Empowering Electronics Students
+    </footer>
+</body>
+</html>
+
+
+
+
